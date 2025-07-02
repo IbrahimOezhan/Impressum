@@ -1,59 +1,139 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressum</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impressum / Legal Notice</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+      margin: 40px;
+      color: #333;
+    }
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      max-width: 800px;
+      margin: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+    button {
+      margin-right: 10px;
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      background-color: #2c3e50;
+      color: #fff;
+    }
+    button:hover {
+      background-color: #1a242f;
+    }
+  </style>
 </head>
 <body>
-    <h1>Impressum</h1>
+  <div class="container">
+    <button onclick="switchLanguage('de')">Deutsch</button>
+    <button onclick="switchLanguage('en')">English</button>
     
-    <h2>Angaben gemäß § 5 TMG</h2>
-    <p>
-        <strong>Name:</strong><br>
-        Ibrahim Oezhan
-    </p>
-    <p>
-        <strong>Adresse:</strong><br>
-		Franz-Mehring-Str. 15
-		01237 Dresden
-    </p>
-    <p>
-        <strong>Kontakt:</strong><br>
-        E-Mail: contact@ibrahimoezhan.com
-    </p>
-    
-    <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</h2>
-    <p>
-        Ibrahim Özhan<br>
-		Franz-Mehring-Str. 15
-		01237 Dresden
-    </p>
-    
-    <h2>Haftungsausschluss (Disclaimer)</h2>
-    
-    <h3>Haftung für Inhalte</h3>
-    <p>
-        Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
-    </p>
-    <p>
-        Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
-    </p>
-    
-    <h3>Haftung für Links</h3>
-    <p>
-        Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.
-    </p>
-    <p>
-        Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
-    </p>
-    
-    <h3>Urheberrecht</h3>
-    <p>
-        Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
-    </p>
-    <p>
-        Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
-    </p>
+    <h1 id="title"></h1>
+
+    <h2 id="section1-title"></h2>
+    <p id="name"></p>
+    <p id="address"></p>
+    <p id="contact"></p>
+
+    <h2 id="section2-title"></h2>
+    <p id="responsible"></p>
+
+    <h2 id="section3-title"></h2>
+
+    <h3 id="section3a-title"></h3>
+    <p id="liability-content"></p>
+    <p id="liability-details"></p>
+
+    <h3 id="section3b-title"></h3>
+    <p id="links-content"></p>
+    <p id="links-details"></p>
+
+    <h3 id="section3c-title"></h3>
+    <p id="copyright-content"></p>
+    <p id="thirdparty-content"></p>
+  </div>
+
+  <script>
+    const translations = {
+      de: {
+        title: "Impressum",
+        section1_title: "Angaben gemäß § 5 TMG",
+        name: "<strong>Name:</strong><br>Ibrahim Özhan",
+        address: "<strong>Adresse:</strong><br>c/o Autorenglück #66641<br>Albert-Einstein-Str. 47<br>02977 Hoyerswerda",
+        contact: "<strong>Kontakt:</strong><br>E-Mail: contact@ibrahimoezhan.com",
+        section2_title: "Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV",
+        responsible: "Ibrahim Özhan<br>c/o Autorenglück #66641<br>Albert-Einstein-Str. 47<br>02977 Hoyerswerda",
+        section3_title: "Haftungsausschluss (Disclaimer)",
+        section3a_title: "Haftung für Inhalte",
+        liability_content: "Als Diensteanbieter bin ich gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG bin ich jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.",
+        liability_details: "Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werde ich diese Inhalte umgehend entfernen.",
+        section3b_title: "Haftung für Links",
+        links_content: "Mein Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.",
+        links_details: "Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Links umgehend entfernen.",
+        section3c_title: "Urheberrecht",
+        copyright_content: "Die durch mich erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.",
+        thirdparty_content: "Soweit die Inhalte auf dieser Seite nicht von mir erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitte ich um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Inhalte umgehend entfernen."
+      },
+      en: {
+        title: "Legal Notice",
+        section1_title: "Information pursuant to § 5 TMG",
+        name: "<strong>Name:</strong><br>Ibrahim Özhan",
+        address: "<strong>Address:</strong><br>c/o Autorenglück #66641<br>Albert-Einstein-Str. 47<br>02977 Hoyerswerda<br>Germany",
+        contact: "<strong>Contact:</strong><br>Email: contact@ibrahimoezhan.com",
+        section2_title: "Responsible for content pursuant to § 55 para. 2 RStV",
+        responsible: "Ibrahim Özhan<br>c/o Autorenglück #66641<br>Albert-Einstein-Str. 47<br>02977 Hoyerswerda<br>Germany",
+        section3_title: "Disclaimer",
+        section3a_title: "Liability for Content",
+        liability_content: "As a service provider, I am responsible for my own content on these pages in accordance with general laws pursuant to § 7 para. 1 TMG. However, according to §§ 8 to 10 TMG, I am not obliged to monitor transmitted or stored third-party information or to investigate circumstances indicating illegal activity.",
+        liability_details: "Obligations to remove or block the use of information under general laws remain unaffected. However, liability in this respect is only possible from the time of knowledge of a specific infringement. Upon becoming aware of any such legal violations, I will remove such content immediately.",
+        section3b_title: "Liability for Links",
+        links_content: "My website contains links to external websites of third parties over whose content I have no influence. Therefore, I cannot assume any liability for these external contents. The respective provider or operator of the pages is always responsible for the content of the linked pages. The linked pages were checked for possible legal violations at the time of linking. No illegal content was recognizable at the time of linking.",
+        links_details: "However, a permanent content control of the linked pages is not reasonable without concrete evidence of a violation of the law. If I become aware of any legal violations, I will remove such links immediately.",
+        section3c_title: "Copyright",
+        copyright_content: "The content and works created by me on these pages are subject to German copyright law. Reproduction, editing, distribution, and any kind of utilization outside the limits of copyright law require the written consent of the respective author or creator. Downloads and copies of this site are only permitted for private, non-commercial use.",
+        thirdparty_content: "Insofar as the content on this site was not created by me, the copyrights of third parties are respected. In particular, third-party content is identified as such. Should you nevertheless become aware of a copyright infringement, please inform me accordingly. Upon becoming aware of legal violations, I will remove such content immediately."
+      }
+    };
+
+    function switchLanguage(lang) {
+      const t = translations[lang];
+      document.getElementById('title').innerHTML = t.title;
+      document.getElementById('section1-title').innerHTML = t.section1_title;
+      document.getElementById('name').innerHTML = t.name;
+      document.getElementById('address').innerHTML = t.address;
+      document.getElementById('contact').innerHTML = t.contact;
+      document.getElementById('section2-title').innerHTML = t.section2_title;
+      document.getElementById('responsible').innerHTML = t.responsible;
+      document.getElementById('section3-title').innerHTML = t.section3_title;
+      document.getElementById('section3a-title').innerHTML = t.section3a_title;
+      document.getElementById('liability-content').innerHTML = t.liability_content;
+      document.getElementById('liability-details').innerHTML = t.liability_details;
+      document.getElementById('section3b-title').innerHTML = t.section3b_title;
+      document.getElementById('links-content').innerHTML = t.links_content;
+      document.getElementById('links-details').innerHTML = t.links_details;
+      document.getElementById('section3c-title').innerHTML = t.section3c_title;
+      document.getElementById('copyright-content').innerHTML = t.copyright_content;
+      document.getElementById('thirdparty-content').innerHTML = t.thirdparty_content;
+    }
+
+    // Initial load: Deutsch
+    switchLanguage('de');
+  </script>
 </body>
 </html>
